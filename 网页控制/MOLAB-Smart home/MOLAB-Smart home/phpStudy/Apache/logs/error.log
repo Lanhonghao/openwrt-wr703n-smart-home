@@ -1,0 +1,142 @@
+[Mon Feb 05 03:34:17.711874 2018] [mpm_winnt:notice] [pid 8732:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Mon Feb 05 03:34:17.711874 2018] [mpm_winnt:notice] [pid 8732:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Mon Feb 05 03:34:17.711874 2018] [core:notice] [pid 8732:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Mon Feb 05 03:34:17.712874 2018] [mpm_winnt:notice] [pid 8732:tid 360] AH00418: Parent: Created child process 6996
+[Mon Feb 05 03:34:19.018949 2018] [mpm_winnt:notice] [pid 6996:tid 376] AH00354: Child: Starting 150 worker threads.
+[Mon Feb 05 03:43:41.994149 2018] [:error] [pid 6996:tid 1796] [client ::1:44135] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://localhost/login.php
+[Mon Feb 05 03:43:55.414917 2018] [:error] [pid 6996:tid 1796] [client ::1:44140] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\reguser.php on line 118, referer: http://localhost/reguser.php
+[Mon Feb 05 04:36:50.377514 2018] [:error] [pid 6996:tid 1804] [client ::1:44793] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/switch/index.php
+[Mon Feb 05 04:36:50.377514 2018] [:error] [pid 6996:tid 1804] [client ::1:44793] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/switch/index.php
+[Mon Feb 05 05:58:15.136906 2018] [core:warn] [pid 28976:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Feb 05 05:58:15.488927 2018] [mpm_winnt:notice] [pid 28976:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Mon Feb 05 05:58:15.488927 2018] [mpm_winnt:notice] [pid 28976:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Mon Feb 05 05:58:15.488927 2018] [core:notice] [pid 28976:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Mon Feb 05 05:58:15.490927 2018] [mpm_winnt:notice] [pid 28976:tid 360] AH00418: Parent: Created child process 20136
+[Mon Feb 05 05:58:16.607991 2018] [mpm_winnt:notice] [pid 20136:tid 376] AH00354: Child: Starting 150 worker threads.
+[Mon Feb 05 06:00:06.828295 2018] [mpm_winnt:crit] [pid 20136:tid 376] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Mon Feb 05 06:32:19.511838 2018] [core:warn] [pid 46312:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Feb 05 06:32:19.849857 2018] [mpm_winnt:notice] [pid 46312:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Mon Feb 05 06:32:19.849857 2018] [mpm_winnt:notice] [pid 46312:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Mon Feb 05 06:32:19.849857 2018] [core:notice] [pid 46312:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Mon Feb 05 06:32:19.850857 2018] [mpm_winnt:notice] [pid 46312:tid 360] AH00418: Parent: Created child process 6776
+[Mon Feb 05 06:32:20.983922 2018] [mpm_winnt:notice] [pid 6776:tid 376] AH00354: Child: Starting 150 worker threads.
+[Mon Feb 05 07:32:23.490974 2018] [core:warn] [pid 47944:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Feb 05 07:32:23.827993 2018] [mpm_winnt:notice] [pid 47944:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Mon Feb 05 07:32:23.827993 2018] [mpm_winnt:notice] [pid 47944:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Mon Feb 05 07:32:23.827993 2018] [core:notice] [pid 47944:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Mon Feb 05 07:32:23.829993 2018] [mpm_winnt:notice] [pid 47944:tid 360] AH00418: Parent: Created child process 24636
+[Mon Feb 05 07:32:24.983059 2018] [mpm_winnt:notice] [pid 24636:tid 376] AH00354: Child: Starting 150 worker threads.
+[Mon Feb 05 19:16:27.702527 2018] [mpm_winnt:crit] [pid 24636:tid 376] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Wed Feb 07 19:06:11.537142 2018] [core:warn] [pid 7140:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Feb 07 19:06:12.874219 2018] [mpm_winnt:notice] [pid 7140:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Wed Feb 07 19:06:12.879219 2018] [mpm_winnt:notice] [pid 7140:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Wed Feb 07 19:06:12.879219 2018] [core:notice] [pid 7140:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Wed Feb 07 19:06:12.882219 2018] [mpm_winnt:notice] [pid 7140:tid 360] AH00418: Parent: Created child process 12000
+[Wed Feb 07 19:06:15.194352 2018] [mpm_winnt:notice] [pid 12000:tid 376] AH00354: Child: Starting 150 worker threads.
+[Wed Feb 07 19:07:11.422568 2018] [mpm_winnt:crit] [pid 12000:tid 376] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Tue Apr 17 19:21:29.479723 2018] [core:warn] [pid 480:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Apr 17 19:21:31.658847 2018] [mpm_winnt:notice] [pid 480:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Tue Apr 17 19:21:31.670848 2018] [mpm_winnt:notice] [pid 480:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Tue Apr 17 19:21:31.670848 2018] [core:notice] [pid 480:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Tue Apr 17 19:21:31.671848 2018] [mpm_winnt:notice] [pid 480:tid 364] AH00418: Parent: Created child process 6776
+[Tue Apr 17 19:21:32.668905 2018] [mpm_winnt:notice] [pid 6776:tid 380] AH00354: Child: Starting 150 worker threads.
+[Tue Apr 17 23:08:31.836620 2018] [mpm_winnt:notice] [pid 480:tid 364] AH00428: Parent: child process 6776 exited with status 1073807364 -- Restarting.
+[Fri Apr 27 16:28:58.973008 2018] [core:warn] [pid 5264:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Apr 27 16:29:00.532097 2018] [mpm_winnt:notice] [pid 5264:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Fri Apr 27 16:29:00.543098 2018] [mpm_winnt:notice] [pid 5264:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Fri Apr 27 16:29:00.543098 2018] [core:notice] [pid 5264:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Fri Apr 27 16:29:00.546098 2018] [mpm_winnt:notice] [pid 5264:tid 364] AH00418: Parent: Created child process 932
+[Fri Apr 27 16:29:01.484152 2018] [mpm_winnt:notice] [pid 932:tid 380] AH00354: Child: Starting 150 worker threads.
+[Fri Apr 27 16:33:51.911763 2018] [:error] [pid 932:tid 1824] [client 192.168.1.140:21898] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:34:03.770442 2018] [:error] [pid 932:tid 1824] [client 192.168.1.140:21901] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:34:12.698952 2018] [mpm_winnt:crit] [pid 932:tid 380] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Fri Apr 27 16:34:14.911079 2018] [core:warn] [pid 6876:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Apr 27 16:34:15.164093 2018] [mpm_winnt:notice] [pid 6876:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Fri Apr 27 16:34:15.164093 2018] [mpm_winnt:notice] [pid 6876:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Fri Apr 27 16:34:15.164093 2018] [core:notice] [pid 6876:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Fri Apr 27 16:34:15.166093 2018] [mpm_winnt:notice] [pid 6876:tid 364] AH00418: Parent: Created child process 8172
+[Fri Apr 27 16:34:16.190152 2018] [mpm_winnt:notice] [pid 8172:tid 380] AH00354: Child: Starting 150 worker threads.
+[Fri Apr 27 16:35:36.504746 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21920] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:35:52.617667 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21927] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: \xb2\xbb\xd6\xaa\xb5\xc0\xd5\xe2\xd1\xf9\xb5\xc4\xd6\xf7\xbb\xfa\xa1\xa3  in D:\\phpStudy\\WWW\\smail.php on line 42, referer: http://192.168.1.140/forget.php
+[Fri Apr 27 16:35:52.617667 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21927] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.exmail.qq.com:25 (php_network_getaddresses: getaddrinfo failed: \xb2\xbb\xd6\xaa\xb5\xc0\xd5\xe2\xd1\xf9\xb5\xc4\xd6\xf7\xbb\xfa\xa1\xa3 ) in D:\\phpStudy\\WWW\\smail.php on line 42, referer: http://192.168.1.140/forget.php
+[Fri Apr 27 16:36:37.179216 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21935] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:37:00.107528 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21938] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:37:07.775966 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21941] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:37:12.919260 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21941] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:37:26.389031 2018] [:error] [pid 8172:tid 1824] [client 192.168.1.140:21946] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 134, referer: http://192.168.1.140/login.php
+[Fri Apr 27 16:43:09.536658 2018] [:error] [pid 8172:tid 1800] [client 192.168.1.139:46899] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in D:\\phpStudy\\WWW\\login.php on line 116
+[Fri Apr 27 16:45:38.632185 2018] [:error] [pid 8172:tid 1808] [client 192.168.1.139:47021] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://192.168.1.140/math/switch/index.php
+[Fri Apr 27 16:45:38.632185 2018] [:error] [pid 8172:tid 1808] [client 192.168.1.139:47021] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://192.168.1.140/math/switch/index.php
+[Fri Apr 27 20:58:33.620145 2018] [mpm_winnt:notice] [pid 6876:tid 364] AH00428: Parent: child process 8172 exited with status 1073807364 -- Restarting.
+[Sat May 05 14:17:27.771930 2018] [core:warn] [pid 1012:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sat May 05 14:17:29.429533 2018] [mpm_winnt:notice] [pid 1012:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sat May 05 14:17:29.445133 2018] [mpm_winnt:notice] [pid 1012:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sat May 05 14:17:29.445133 2018] [core:notice] [pid 1012:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Sat May 05 14:17:29.445133 2018] [mpm_winnt:notice] [pid 1012:tid 364] AH00418: Parent: Created child process 2104
+[Sat May 05 14:17:30.367535 2018] [mpm_winnt:notice] [pid 2104:tid 380] AH00354: Child: Starting 150 worker threads.
+[Sat May 05 14:39:21.053902 2018] [:error] [pid 2104:tid 1824] [client ::1:7175] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/switch/index.php
+[Sat May 05 14:39:21.053902 2018] [:error] [pid 2104:tid 1824] [client ::1:7175] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/switch/index.php
+[Sat May 05 21:07:41.667594 2018] [mpm_winnt:notice] [pid 1012:tid 364] AH00428: Parent: child process 2104 exited with status 1073807364 -- Restarting.
+[Wed Jun 20 12:10:35.482795 2018] [core:warn] [pid 7908:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jun 20 12:10:37.242798 2018] [mpm_winnt:notice] [pid 7908:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Wed Jun 20 12:10:37.252798 2018] [mpm_winnt:notice] [pid 7908:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Wed Jun 20 12:10:37.252798 2018] [core:notice] [pid 7908:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Wed Jun 20 12:10:37.262798 2018] [mpm_winnt:notice] [pid 7908:tid 364] AH00418: Parent: Created child process 6984
+[Wed Jun 20 12:10:38.332799 2018] [mpm_winnt:notice] [pid 6984:tid 380] AH00354: Child: Starting 150 worker threads.
+[Mon Jun 25 11:16:26.783008 2018] [core:warn] [pid 9152:tid 364] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Jun 25 11:16:29.239067 2018] [mpm_winnt:notice] [pid 9152:tid 364] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Mon Jun 25 11:16:29.239067 2018] [mpm_winnt:notice] [pid 9152:tid 364] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Mon Jun 25 11:16:29.239067 2018] [core:notice] [pid 9152:tid 364] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Mon Jun 25 11:16:29.241067 2018] [mpm_winnt:notice] [pid 9152:tid 364] AH00418: Parent: Created child process 8368
+[Mon Jun 25 11:16:30.352488 2018] [mpm_winnt:notice] [pid 8368:tid 380] AH00354: Child: Starting 150 worker threads.
+[Fri Jul 06 16:09:07.914139 2018] [core:warn] [pid 8696:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Jul 06 16:09:09.754942 2018] [mpm_winnt:notice] [pid 8696:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Fri Jul 06 16:09:09.770542 2018] [mpm_winnt:notice] [pid 8696:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Fri Jul 06 16:09:09.770542 2018] [core:notice] [pid 8696:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Fri Jul 06 16:09:09.770542 2018] [mpm_winnt:notice] [pid 8696:tid 360] AH00418: Parent: Created child process 8252
+[Fri Jul 06 16:09:10.690944 2018] [mpm_winnt:notice] [pid 8252:tid 376] AH00354: Child: Starting 150 worker threads.
+[Sat Jul 07 20:25:48.277220 2018] [core:warn] [pid 10800:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sat Jul 07 20:25:48.656241 2018] [mpm_winnt:notice] [pid 10800:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sat Jul 07 20:25:48.656241 2018] [mpm_winnt:notice] [pid 10800:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sat Jul 07 20:25:48.656241 2018] [core:notice] [pid 10800:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Sat Jul 07 20:25:48.657241 2018] [mpm_winnt:notice] [pid 10800:tid 360] AH00418: Parent: Created child process 10356
+[Sat Jul 07 20:25:49.943315 2018] [mpm_winnt:notice] [pid 10356:tid 376] AH00354: Child: Starting 150 worker threads.
+[Tue Aug 07 15:45:21.644231 2018] [core:warn] [pid 4720:tid 360] AH00098: pid file D:/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Aug 07 15:45:23.161924 2018] [mpm_winnt:notice] [pid 4720:tid 360] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Tue Aug 07 15:45:23.175926 2018] [mpm_winnt:notice] [pid 4720:tid 360] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Tue Aug 07 15:45:23.175926 2018] [core:notice] [pid 4720:tid 360] AH00094: Command line: 'D:\\phpStudy\\Apache\\bin\\httpd.exe -d D:/phpStudy/Apache'
+[Tue Aug 07 15:45:23.214931 2018] [mpm_winnt:notice] [pid 4720:tid 360] AH00418: Parent: Created child process 8640
+[Tue Aug 07 15:45:24.929649 2018] [mpm_winnt:notice] [pid 8640:tid 376] AH00354: Child: Starting 150 worker threads.
+[Tue Aug 07 15:45:54.171362 2018] [:error] [pid 8640:tid 1832] [client ::1:44914] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Tue Aug 07 15:45:54.171862 2018] [:error] [pid 8640:tid 1832] [client ::1:44914] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Tue Aug 07 15:46:03.458541 2018] [:error] [pid 8640:tid 1832] [client ::1:44946] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Tue Aug 07 15:46:03.458541 2018] [:error] [pid 8640:tid 1832] [client ::1:44946] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Tue Aug 07 15:46:18.892501 2018] [:error] [pid 8640:tid 1832] [client ::1:44983] PHP Notice:  Undefined index: sid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Tue Aug 07 15:46:18.892501 2018] [:error] [pid 8640:tid 1832] [client ::1:44983] PHP Notice:  Undefined index: nid in D:\\phpStudy\\WWW\\devicename.php on line 30, referer: http://localhost/math/door/index.php
+[Sat Oct 20 13:04:56.540239 2018] [core:warn] [pid 8716:tid 384] AH00098: pid file C:/Users/Lance/Desktop/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sat Oct 20 13:04:56.944262 2018] [mpm_winnt:notice] [pid 8716:tid 384] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sat Oct 20 13:04:56.944262 2018] [mpm_winnt:notice] [pid 8716:tid 384] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sat Oct 20 13:04:56.944262 2018] [core:notice] [pid 8716:tid 384] AH00094: Command line: 'C:\\Users\\Lance\\Desktop\\phpStudy\\Apache\\bin\\httpd.exe -d C:/Users/Lance/Desktop/phpStudy/Apache'
+[Sat Oct 20 13:04:56.953263 2018] [mpm_winnt:notice] [pid 8716:tid 384] AH00418: Parent: Created child process 7408
+[Sat Oct 20 13:04:58.406346 2018] [mpm_winnt:notice] [pid 7408:tid 400] AH00354: Child: Starting 150 worker threads.
+[Sat Oct 20 14:13:44.638344 2018] [mpm_winnt:notice] [pid 8716:tid 384] AH00428: Parent: child process 7408 exited with status 1073807364 -- Restarting.
+[Sun Oct 21 12:02:46.720894 2018] [core:warn] [pid 4832:tid 384] AH00098: pid file C:/Users/Lance/Desktop/MOLAB-Smart home/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 21 12:02:47.087915 2018] [mpm_winnt:notice] [pid 4832:tid 384] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sun Oct 21 12:02:47.087915 2018] [mpm_winnt:notice] [pid 4832:tid 384] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sun Oct 21 12:02:47.087915 2018] [core:notice] [pid 4832:tid 384] AH00094: Command line: 'C:\\Users\\Lance\\Desktop\\MOLAB-Smart home\\phpStudy\\Apache\\bin\\httpd.exe -d C:/Users/Lance/Desktop/MOLAB-Smart home/phpStudy/Apache'
+[Sun Oct 21 12:02:47.089916 2018] [mpm_winnt:notice] [pid 4832:tid 384] AH00418: Parent: Created child process 4056
+[Sun Oct 21 12:02:48.440993 2018] [mpm_winnt:notice] [pid 4056:tid 400] AH00354: Child: Starting 150 worker threads.
+[Sun Oct 21 12:05:32.469375 2018] [core:warn] [pid 1752:tid 384] AH00098: pid file D:/MOLAB-Smart home/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 21 12:05:32.721389 2018] [mpm_winnt:notice] [pid 1752:tid 384] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sun Oct 21 12:05:32.721389 2018] [mpm_winnt:notice] [pid 1752:tid 384] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sun Oct 21 12:05:32.721389 2018] [core:notice] [pid 1752:tid 384] AH00094: Command line: 'D:\\MOLAB-Smart home\\phpStudy\\Apache\\bin\\httpd.exe -d D:/MOLAB-Smart home/phpStudy/Apache'
+[Sun Oct 21 12:05:32.723389 2018] [mpm_winnt:notice] [pid 1752:tid 384] AH00418: Parent: Created child process 4688
+[Sun Oct 21 12:05:33.973461 2018] [mpm_winnt:notice] [pid 4688:tid 400] AH00354: Child: Starting 150 worker threads.
+[Sun Oct 21 12:38:57.498048 2018] [mpm_winnt:crit] [pid 4688:tid 400] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Sun Oct 21 12:38:59.767178 2018] [core:warn] [pid 812:tid 384] AH00098: pid file D:/MOLAB-Smart home/phpStudy/Apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 21 12:38:59.978190 2018] [mpm_winnt:notice] [pid 812:tid 384] AH00455: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29 configured -- resuming normal operations
+[Sun Oct 21 12:38:59.978190 2018] [mpm_winnt:notice] [pid 812:tid 384] AH00456: Apache Lounge VC9 Server built: Jul 19 2014 13:20:51
+[Sun Oct 21 12:38:59.978190 2018] [core:notice] [pid 812:tid 384] AH00094: Command line: 'D:\\MOLAB-Smart home\\phpStudy\\Apache\\bin\\httpd.exe -d D:/MOLAB-Smart home/phpStudy/Apache'
+[Sun Oct 21 12:38:59.979190 2018] [mpm_winnt:notice] [pid 812:tid 384] AH00418: Parent: Created child process 8368
+[Sun Oct 21 12:39:01.117255 2018] [mpm_winnt:notice] [pid 8368:tid 400] AH00354: Child: Starting 150 worker threads.
+[Mon Oct 22 20:22:34.717397 2018] [mpm_winnt:notice] [pid 812:tid 384] AH00428: Parent: child process 8368 exited with status 1073807364 -- Restarting.
