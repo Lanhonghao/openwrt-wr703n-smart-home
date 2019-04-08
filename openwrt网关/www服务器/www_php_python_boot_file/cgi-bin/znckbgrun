@@ -1,0 +1,297 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import cgi, os
+import commands
+import serial
+import urllib,urllib2
+import time
+import MySQLdb
+
+
+apikey='你的key' #云服务器key，改成自己的Key（可以到http://m.znck007.com/免费申请）
+apiurl='http://api.znck007.com' #云服务器网址,也可以建自己的云服务器
+isyunserver=3 #1只使用本地服务器 2只使用云服务器 3本地和云服务器一起使用
+logpath='/mnt/sda1/www/cgi-bin/znckbgrun' #日志保存路径
+dogpath='/mnt/sda1/www/cgi-bin/znckdogtime' #看门狗的保存路径
+
+#GET数据
+def BaseGet(url,data):
+	try:
+		url_values=urllib.urlencode(data)	
+		full_url=url+'?'+url_values
+		response=urllib.urlopen(full_url)
+		result=response.read()
+	
+		#print repr(result)
+		return result
+	except:
+		print "BaseGet except:"
+		WriteLog(logpath,"BaseGet except:") #写日志
+	return ""
+	
+#POST数据
+def BasePost(url,data):
+	try:
+		postData = urllib.urlencode(data);
+		req = urllib2.Request(url, postData);
+		req.add_header('Content-Type', "application/x-www-form-urlencoded");
+		resp = urllib2.urlopen(req);
+		code = resp.getcode()
+		result=resp.read()
+	
+		#print repr(result)
+		return result
+
+	except:
+		print "BasePost except:"
+		WriteLog(logpath,"BasePost except:") #写日志
+	return ""
+
+#获取云服务器数据
+def ZnckApiGetData():
+	try:		
+		#获取PHP交互数据
+		postdata = {}
+		postdata['data']='{ck001000000000}'
+		postdata['apikey']=apikey
+	
+		url=apiurl
+		repost=BasePost(url,postdata)
+		print repost	
+		return repost
+		#结束获取PHP交互数据
+	except:
+		print "ZnckApiGetData except:"
+		WriteLog(logpath,"ZnckApiGetData except:") #写日志
+	return ""
+	
+def ZnckApiPostData(value):
+	try:
+		value0="%03d" % int(value[0].strip()) #转成00x格式
+		value1="%03d" % int(value[1].strip()) #转成00x格式
+		valueall='{ck'+value0+value1+value[2]+'}'
+		#获取PHP交互数据
+		postdata = {}
+		postdata['data']=valueall
+		postdata['apikey']=apikey
+	
+		url=apiurl
+		repost=BasePost(url,postdata)
+		print repost	
+		return repost
+		#结束获取PHP交互数据
+	except:
+		print "ZnckApiPostData except:"
+		WriteLog(logpath,"ZnckApiPostData except:") #写日志
+	return ""
+
+
+#获取mysql数据
+def SelectWorklist():
+	try:
+		#连接数据库
+		conn=MySQLdb.connect(host='192.168.1.1',user='root',passwd='znck007',port=3306)
+		cur=conn.cursor()		 
+		
+		conn.select_db('znckapi')#选择数据库名
+		
+		count=cur.execute('SELECT * FROM api_worklist WHERE status=0 ORDER BY id DESC LIMIT 0,1') #最后1条		
+		#print "count="+str(count)
+		
+		repost=""
+		results=cur.fetchall()
+		if results :
+			for r in results:
+				#print str(r[0])+str(r[1])+str(r[2])+str(r[3])+str(r[4])+str(r[5])+str(r[6])
+				value0="%03d" % int(r[3].strip()) #转成00x格式
+				value1="%03d" % int(r[4].strip()) #转成00x格式
+
+				repost='{ck'+value0+value1+str(r[5])+'}'				
+				snvalue=[value0,value1]
+				if(r[10]>5):#如果num字段大于5则设为超时
+					cur.execute('UPDATE api_worklist SET status=3 where sid=%s and nid=%s and status=0',snvalue) 
+				#更新调用次数，用来判断设备是否				
+				cur.execute('UPDATE api_worklist SET num=num+1 where sid=%s and nid=%s and status=0',snvalue) 
+				
+				#如果是红外摇控只获取一次，否则可能有重复发射现象。
+
+		conn.commit()#提交
+		cur.close()#关闭
+		conn.close()#关闭
+		
+		return repost
+			
+	except MySQLdb.Error,e:
+		print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+		WriteLog(logpath,"Mysql Error %d: %s" % (e.args[0], e.args[1])) #写日志
+	except:
+		print "SelectWorklist except..."
+		WriteLog(logpath,"SelectWorklist except...") #写日志
+	return ""
+	 
+#添加数据到mysql
+def InsertWorklist(value):
+	try:
+		
+		#连接数据库
+		conn=MySQLdb.connect(host='192.168.1.1',user='root',passwd='znck007',port=3306)
+		cur=conn.cursor()		 
+		
+		conn.select_db('znckapi')#选择数据库名		
+				
+		now=time.strftime('%Y-%m-%d %H:%M:%S')#当前时间
+		
+		value0="%03d" % int(value[0].strip()) #转成00x格式
+		value1="%03d" % int(value[1].strip()) #转成00x格式
+		snvalue=[value0,value1]
+		cur.execute('DELETE FROM api_worklist where type=2 and sid=%s and nid=%s and status>0',snvalue) #删除相同数据
+		
+		invalue=[2,0,value0,value1,value[2],"upload data",1,now,"192.168.1.1",0]
+		cur.execute('INSERT INTO api_worklist(type,uid,sid,nid,data,note,status,time,ip,num)  VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',invalue) #插入数据
+		
+		#更新执行成功{ck00x00xupdate}格式
+		if( value[2]=='update' ):			
+			cur.execute('UPDATE api_worklist SET status=1 where sid=%s and nid=%s',snvalue)	
+	
+		conn.commit()#提交
+		cur.close()#关闭
+		conn.close()#关闭
+	 
+	except MySQLdb.Error,e:
+		print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+		WriteLog(logpath,"Mysql Error %d: %s" % (e.args[0], e.args[1])) #写日志
+
+	except:
+		print "InsertWorklist except..."
+		WriteLog(logpath,"InsertWorklist except...") #写日志
+	
+	return ""
+
+#写日志
+def WriteLog(file,value):
+	try:
+		file=file+time.strftime('%Y-%m-%d')+".log" #生成log文件名称
+		now=time.strftime('%Y-%m-%d %H:%M:%S')#当前时间
+		f = open(file,'ab')
+		f.write(now+":"+value+"\r\n")
+		f.close()
+	except:
+		print "except WriteLog..."
+	
+
+def Writedogtime(file,value):
+	try:		
+		f = open(file,'w')
+		f.write(value)
+		f.close()
+	except:
+		print "except Writedogtime..."
+
+	 
+#解析{ck00x00x000000}格式		 
+def ResolveZnck(data):
+	if( data.find('{ck')>=0 & data.find('}')>=0 ): #如果是'{ck00x00x000000}'格式
+		
+		start=data.find('{ck'); #定位字符开始位置
+		end=len(data); #定位字符长度
+		data_t=data[start:end]; #截取正确的格式
+		
+		data_t= data_t.replace('\r','') #替换回车换行
+		data_t= data_t.replace('\n','') #替换回车换行	
+		
+		sid=data_t[3:6];
+		nid=data_t[6:9];
+		data_=data_t[9:data_t.find('}')];
+				
+		value=[sid,nid,data_]
+		return value;
+	
+
+
+#以下代码在后台一直运行
+	
+cmdstring = "ls /dev/ttyUSB0" #判断是否是ttyUSB0
+(status, output) = commands.getstatusoutput(cmdstring)
+if( status == 0 ):#0代表成功 大于0是各种错误
+	print "ttyUSB0 ready..."
+	ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1) #打开串口通信
+	#ser.write("lABC") #向串口发送字符
+else:
+	cmdstring = "ls /dev/ttyUSB1" #判断是否是ttyUSB1
+	(status, output) = commands.getstatusoutput(cmdstring)
+	if( status == 0 ):#0代表成功 大于0是各种错误
+		print "ttyUSB1 ready..."
+		ser = serial.Serial('/dev/ttyUSB1', 115200, timeout=1) #打开串口通信
+		#ser.write("lABC") #向串口发送字符
+	else:
+		print "ttyUSB check error..."
+		WriteLog(logpath,"ttyUSB check error...") #写日志
+		#exit()
+
+cmdstring = "rm -rf "+dogpath #删除旧的看门狗文件
+(status, output) = commands.getstatusoutput(cmdstring)
+
+sendcount=0 #记录循环次数
+errorcount=0 #记录错误次数
+while True:
+	try:					
+		
+		data=ser.readline() #读取一行 读取1个字符read(1)		
+		
+		if( data.find('{ck')>=0 and data.find('}')>=0 ): #如果是'{ck00x00x000000}'格式 
+			data= data.replace('\r','') #替换回车换行
+			data= data.replace('\n','') #替换回车换行
+			
+			datavalue=ResolveZnck(data)
+
+			#使用本地服务器
+			if(isyunserver==1 or isyunserver==3):
+				InsertWorklist(datavalue)
+						
+			#使用云服务器
+			if(isyunserver==2 or isyunserver==3):
+				ZnckApiPostData(datavalue)
+			
+		
+		if data!="" :
+			#print "serial data <<<"+data
+			WriteLog(logpath,data) #写日志
+			continue	
+		
+		sendcount=sendcount+1 #计数器加1
+		if( sendcount%1 ==0 ): #间隔1次执行	
+			#使用本地服务器
+			if(isyunserver==1 or isyunserver==3):
+				repost=SelectWorklist()
+				if( repost.find('{ck')>=0 and repost.find('}')>=0 ): #如果是'{ck00x00x000000}'格式
+					ser.write(repost)
+					#print "serial write >>>"+repost				
+					time.sleep(2)
+			
+			#使用云服务器
+			if(isyunserver==2 or isyunserver==3):						
+				repost=ZnckApiGetData()				
+				if( repost.find('{ck')>=0 and repost.find('}')>=0 ): #如果是'{ck00x00x000000}'格式					
+					ser.write(repost)
+					#print "serial write >>>"+repost				
+					time.sleep(2)
+		
+		#print 'sendcount='+str(sendcount)
+		if( sendcount>10000 ):
+			sendcount=0 #初始化为0		
+		
+		Writedogtime(dogpath,time.strftime('%Y-%m-%d %H:%M:%S'))
+
+	except Exception,e:		
+		errorcount=errorcount+1 #计数器加1
+		#print 'errorcount='+str(errorcount)
+		#WriteLog(logpath+"err","Exception,errorcount="+str(errorcount))
+
+		print "except Error %s" % (e)
+		WriteLog(logpath+"err","except Error %s" % (e)+str(errorcount)) #写日志
+		time.sleep(1)
+		
+ser.close()
+
+

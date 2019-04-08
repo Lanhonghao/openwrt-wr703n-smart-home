@@ -1,0 +1,11 @@
+// WinHex license file
+
+Name: "crsky"
+Addr1: "www.crsky.com"
+Addr2: "crsky@163.com"
+Key1: 5CF4F0A05A6C58BE573A3654223A98F0
+Key2: 7D489DB9AD9A39F88E56E8E3D519CADE
+Chksm: 5E
+
+
+

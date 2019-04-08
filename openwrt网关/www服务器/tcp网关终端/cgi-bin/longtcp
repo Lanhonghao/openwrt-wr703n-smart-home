@@ -1,0 +1,236 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import cgi, os
+import commands
+import serial
+import socket
+import time
+from socket import * #引用socket类库
+
+apikey='xxxxxxxxxxxxxxxx' #你的key云服务器key，改成自己的Key（可以到http://m.znck007.com/免费申请）
+
+HOST = '121.199.40.177' #云服务器IP，改成自己的IP（默认是智能创客的云端，可以自己搭建服务端）
+PORT = 8080 #云服务器端口
+BUFSIZ = 1024 #读取字符长度
+ADDR = (HOST, PORT) #生成服务器地址
+
+logpath='/mnt/sda1/www/cgi-bin/longtcp' #日志保存路径
+dogpath='/mnt/sda1/www/cgi-bin/longtcptime' #看门狗的保存路径
+
+global tcpCliSock #全局变量
+global ser #全局变量
+
+#写日志
+def WriteLog(file,value):
+	try:
+		file=file+time.strftime('%Y-%m-%d')+".log" #生成log文件名称
+		now=time.strftime('%Y-%m-%d %H:%M:%S')#当前时间
+		f = open(file,'ab')
+		f.write(now+":"+value+"\r\n")
+		f.close()
+	except:
+		print "except WriteLog..."
+
+
+def Writedogtime(file,value):
+	try:		
+		f = open(file,'w')
+		f.write(value)
+		f.close()
+	except:
+		print "except Writedogtime..."
+	 
+#解析{ck00x00x000000}格式		 
+def ResolveZnck(data):
+	if( data.find('{ck')>=0 & data.find('}')>=0 ): #如果是'{ck00x00x000000}'格式
+		
+		start=data.find('{ck'); #定位字符开始位置
+		end=len(data); #定位字符长度
+		data_t=data[start:end]; #截取正确的格式
+		
+		data_t= data_t.replace('\r','') #替换回车换行
+		data_t= data_t.replace('\n','') #替换回车换行	
+		
+		sid=data_t[3:6];
+		nid=data_t[6:9];
+		data_=data_t[9:data_t.find('}')];
+				
+		value=[sid,nid,data_]
+		return value;
+
+	
+def SocketInit():
+	tcpCliSock = socket(AF_INET, SOCK_STREAM) #建立一个socket	
+	tcpCliSock.connect(ADDR) #连接远程服务器
+	tcpCliSock.setblocking(0) #设置不阻塞
+	return tcpCliSock;
+
+
+def BindInit(apikey,tcpCliSock):	
+	bindstr="mode=bind&apikey="+apikey+"&data={ck001000bind}"
+	tcpCliSock.send(bindstr) #绑定网关
+
+def SerialInit():
+	cmdstring = "ls /dev/ttyUSB0" #判断是否是ttyUSB0
+	(status, output) = commands.getstatusoutput(cmdstring)
+	if( status == 0 ):#0代表成功 大于0是各种错误
+		print "ttyUSB0 ready..."
+		ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1) #打开串口通信
+		#ser.write("lABC") #向串口发送字符
+	else:
+		cmdstring = "ls /dev/ttyUSB1" #判断是否是ttyUSB1
+		(status, output) = commands.getstatusoutput(cmdstring)
+		if( status == 0 ):#0代表成功 大于0是各种错误
+			print "ttyUSB1 ready..."
+			ser = serial.Serial('/dev/ttyUSB1', 115200, timeout=1) #打开串口通信
+			#ser.write("lABC") #向串口发送字符
+		else:
+			print "ttyUSB check error..."
+			WriteLog(logpath,"ttyUSB check error...") #写日志
+			#exit()
+
+	return ser;
+
+def SocketRestart():
+	tcpCliSock=SocketInit()
+	BindInit(apikey,tcpCliSock)		
+	return tcpCliSock;
+
+
+def SerialRestart():
+	ser=SerialInit()
+	return ser;
+
+
+def tfReboot():
+	cmdstring = "ls /dev/sda1" #查看tf卡是否存在
+	(status, output) = commands.getstatusoutput(cmdstring)	
+	if( status == 0 ):#0代表成功 大于0是各种错误
+		print "sda1 check ok..."			
+	else:
+		print "sda1 check error..."
+		WriteLog(logpath,"sda1 check error...") #写日志
+		cmdstring = "reboot" #重启openwrt
+		(status, output) = commands.getstatusoutput(cmdstring)	
+
+
+
+#以下代码在后台一直运行
+
+sendcount=0 #记录循环次数
+errorcount=0 #记录错误次数
+livecount=0 #记录心跳次数
+
+try:
+	tcpCliSock=SocketRestart()
+	ser=SerialRestart()
+	
+	cmdstring = "rm -rf "+dogpath #删除旧的看门狗文件
+	(status, output) = commands.getstatusoutput(cmdstring)
+except Exception,e:
+	print "except Error %s" % (e)
+	WriteLog(logpath+"err","except Error %s" % (e)+str(errorcount)) #写日志
+	time.sleep(1)
+
+while True:
+	try:	
+		try:				
+			tcpdata = tcpCliSock.recv(BUFSIZ)
+			if tcpdata!="" :
+				print "tcp data <<<"+tcpdata
+				WriteLog(logpath,tcpdata) #写日志	
+			if( tcpdata.find('{ck')>=0 and tcpdata.find('}')>=0 ): #如果是'{ck00x00x000000}'格式 
+				tcpdata= tcpdata.replace('\r','') #替换回车换行
+				tcpdata= tcpdata.replace('\n','') #替换回车换行
+			
+				datavalue=ResolveZnck(tcpdata)	
+
+				value0="%03d" % int(datavalue[0].strip()) #转成00x格式
+				value1="%03d" % int(datavalue[1].strip()) #转成00x格式
+				valueall='{ck'+value0+value1+datavalue[2]+'}'
+				
+				ser.write(valueall) #发送到串口通信			
+			
+			livecount=livecount+1 #计数器加1
+			if( tcpdata .find('live')>=0 ): #检测心跳返回值
+				livecount=0 #记录心跳次数
+				
+		except Exception,e:
+			#print "socket recv error..."
+			time.sleep(0.001)		
+
+
+		try:
+			data=ser.readline() #读取一行 读取1个字符read(1)			
+			if data!="" :
+				print "serial data <<<"+data
+				WriteLog(logpath,data) #写日志	
+			if( data.find('{ck')>=0 and data.find('}')>=0 ): #如果是'{ck00x00x000000}'格式 
+				data= data.replace('\r','') #替换回车换行
+				data= data.replace('\n','') #替换回车换行
+			
+				datavalue=ResolveZnck(data)						
+				
+				value0="%03d" % int(datavalue[0].strip()) #转成00x格式
+				value1="%03d" % int(datavalue[1].strip()) #转成00x格式
+				valueall='{ck'+value0+value1+datavalue[2]+'}'
+				
+				try:
+					livedstr="mode=up&apikey="+apikey+"&data="+valueall
+					tcpCliSock.send(livedstr) #上传数据到去端
+				except Exception,e:
+					print "Socket send error..."
+					time.sleep(1)
+					tcpCliSock.close()	
+					tcpCliSock=SocketRestart()
+					#continue	
+		except Exception,e:
+			print "serial error..."
+			time.sleep(1)
+			ser.close()
+			ser=SerialRestart()
+			#continue
+		
+		try:	
+			sendcount=sendcount+1 #计数器加1
+			if( sendcount%60 ==0 ): #间隔60次执行
+				livedstr="mode=live&apikey="+apikey+"&data={ck001000live}"
+				tcpCliSock.send(livedstr) #心跳
+				
+				if( livecount>80 ):
+					livecount=0 #记录心跳次数
+					print "Socket live timeout..."
+					time.sleep(1)
+					tcpCliSock.close()	
+					tcpCliSock=SocketRestart()
+					#continue
+
+		except Exception,e:
+			print "Socket live error..."
+			time.sleep(1)
+			tcpCliSock.close()	
+			tcpCliSock=SocketRestart()
+			#continue
+
+		print 'sendcount='+str(sendcount)
+		if( sendcount>10000 ):
+			sendcount=0 #初始化为0
+			tfReboot()
+			
+		Writedogtime(dogpath,time.strftime('%Y-%m-%d %H:%M:%S'))
+
+	except Exception,e:		
+		errorcount=errorcount+1 #计数器加1
+		#print 'errorcount='+str(errorcount)
+		#WriteLog(logpath+"err","Exception,errorcount="+str(errorcount))
+
+		print "except Error %s" % (e)
+		WriteLog(logpath+"err","except Error %s" % (e)+str(errorcount)) #写日志
+		time.sleep(1)
+
+
+tcpCliSock.close()		
+ser.close()
+
+

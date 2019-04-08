@@ -1,0 +1,167 @@
+@font-face {
+font-family: 'JyeSymbol';
+src: url('JyeSymbol.ttf'), /* Safari, Android, iOS */
+     url('JyeSymbol.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+*{ margin:0; padding:0;}
+html,body,div,span,object,blockquote,pre,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,fieldset,form,label,legend,caption,tr,th,td{margin:0;padding:0;border:0;font-family:Arial,Verdana,sans-serif}
+html,body{font-size:1em;font-weight:normal;vertical-align:baseline;background:transparent}
+html{width:100%;height:100%}
+img{ border:none;}
+ul li{ list-style:none;}
+
+h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;vertical-align:baseline;background:transparent}
+h1{font-family:Segoe UI,Tahoma,Arial,Verdana,sans-serif;font-size:2.05em;font-weight:bold;padding-right:5px;padding-left:60px;margin:10px auto 5px 5px;vertical-align:top;padding-top:5px;text-align:center}
+h2{border-style:none;padding:5px;font-family:Arial,Verdana,sans-serif;font-size:1.35em;font-weight:bold;margin:5px auto 5px auto;vertical-align:middle;text-transform:lowercase;font-style:normal;line-height:100%;letter-spacing:.1em;text-decoration:none}
+
+p{border:0;vertical-align:baseline;background:transparent}
+
+a{margin:0;padding:0;font-weight:normal;text-decoration:none}
+
+.button{padding:5px;border-radius:10px; background-color: #64bb30; color: #fff}
+.button2{line-height:30px; color:#FFFFFF;background:#64bb30;border-radius:5px;padding:5px;border:1px solid #64bb30;}
+.button3{line-height:30px; color:#FFFFFF;background:#ff9933;border-radius:5px;padding:5px;border:1px solid #ff9933;}
+.button4{line-height:30px; color:#FFFFFF;background:#ff3300;border-radius:5px;padding:5px;border:1px solid #ff3300;}
+
+ins{text-decoration:none}
+del{text-decoration:none;color:#f00;font-style:normal;font-weight:normal}
+
+ul{margin:0;}
+
+.clear{clear:both;width:100%;height:0.8em;overflow:hidden}
+.clear2{clear:both;width:100%;height:1.6em;overflow:hidden}
+.fleft{float:left}.fright{float:right}
+:focus{outline:0}
+
+#container{clear:both;margin:0;padding:0;min-height:20em}
+
+div.rpt{margin:0;padding:0;text-align:left}
+div.rpt_h{margin:0;padding:15px 0;font-size:1.1em;font-weight:bold;color:#5e5946;text-align:center;}
+div.rpt_b{margin:0;padding:2px 0}
+div.rpt_b h3{font-size:1em;font-weight:bold;}
+div.rpt_f{margin:0;padding:2px 0}
+
+
+div.quesaction{clear:both;width:100%;overflow:hidden}
+div.quesaction p{padding:0 4px;float:right;}
+div.quesaction img{width:32px;height:32px;border:none}
+
+fieldset.quesborder{padding:4px;border:1px solid #e2e2e2;border-radius:10px; background-color:#fff}
+fieldset.quesborder td{line-height:1.5em}
+fieldset.quesborder em{font-style:normal;background:#64bb30;color:#fff;margin-right:2px}
+.fieldtip{background:#339933;color:#fff;width:100%;line-height:1.4em; margin-top:2px}
+.fieldtip a{color:#fff;text-decoration: none}
+
+.quizPutTag{display:inline;padding:3px 20px 1px 20px;margin:0 2px;border-bottom:1px solid #000;text-decoration:none;zoom:1;background:#fff;color:#127176}
+.quizPutTag:hover{color:#f60}
+
+.pt0,.pt1,.pt2.pt3,.pt4,.pt5,.pt6,.pt7{line-height:1.6em;overflow:hidden;zoom:1}
+
+.pt0{padding:2px 0 5px 0}
+.pt1{overflow:hidden;zoom:1;clear:both}
+.pt2{margin:0;padding:0 5px 0 0}
+.pt3,.pt4,.pt5,.pt6,.pt7{padding:5px 0 5px 4px;border-bottom:1px dashed #ccc;clear:both;overflow:hidden;zoom:1;position:relative}
+.pt3{margin-top:10px}
+.pt8 a:link,.pt8 a:visited{margin-right:10px;padding:2px 5px}
+.pt8 a:hover{background:#fc0}
+.pt9{text-align:right;border:0 none}
+
+table.edittable{border-collapse:collapse;text-align:center;margin:2px}
+table.edittable th,table.edittable td{line-height:30px;padding:5px;white-space:normal;word-break:break-all;border:1px solid #000;vertical-align:middle}
+
+i,.seq i{font-style:normal}
+
+.sanwser{display:none}
+td.s,div.s{border:1px solid #ADCD3C;background-color:#F2FDDB;overflow:hidden}
+
+/*公式展现样式*/
+.MathJye{border: 0 none;direction: ltr;line-height: normal;display: inline;float: none;font-family:'JyeSymbol','Times New Roman','宋体';font-size:1.1em;font-style: normal;font-weight: normal;letter-spacing: normal;line-height: normal;margin: 0;padding: 0;text-align: left;text-indent: 0;text-transform: none;white-space: nowrap;word-spacing: normal;word-wrap: normal;-webkit-text-size-adjust:none}
+.MathJye img{border:none;}
+.MathJye div,.MathJye span{border: 0 none;margin: 0;padding: 0;line-height: normal;text-align: left;height:auto;_height:auto}
+.MathJye table{border-collapse:collapse;margin: 0;padding: 0;text-align: center;vertical-align: middle;line-height: normal;font-size: inherit;*font-size: 100%;_font-size: 100%;font-style: normal;font-weight: normal;border: 0;float: none;display: inline-block;*display: inline;zoom: 0}
+.MathJye table td{padding:0;font-size:inherit;line-height:normal;white-space: nowrap; border:0 none;width:auto}
+.MathJye_mi{font-style:italic}
+.flipv{-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);-o-transform: scaleX(-1);transform: scaleX(-1);filter: FlipH}
+.fliph{-moz-transform: scaleY(-1);-webkit-transform: scaleY(-1);-o-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV}
+
+/*用户评论*/
+.discuss{ border-radius:5px;border-width:0;padding: 0px;border-spacing: 0px; border-collapse:collapse;width:99%;margin:0 4px; background-color:#F0F0F0}
+.discuss_photo{width:48px;height:48px;margin:5px;border-radius:5px;}
+.discuss td{border-bottom:1px solid #ccc;vertical-align:top}
+.discuss thead{ font-weight:bold;font-size:16px;}
+.discuss td h2{ font-weight:normal;font-size:12px;color:#b8b8b8;height:8px}
+.discuss td p{ display:block; word-wrap: break-word;line-height:24px;}
+.discuss_fllt{ float:left; font-weight: bold; display:block;color:#5CACEE }
+.discuss_fllt img{width:16px;height:16px;vertical-align:middle}
+.discuss_flrt{ float:right; }
+
+.ceq_list{width:100%;font-family:'Times New Roman'}
+.ceq_list P{display:block;border-bottom:1px solid #ccc;Letter-spacing:1px;white-space:normal;word-break:break-all;line-height:24px;padding:10px;vertical-align:middle}
+.ceq_list b{font-weight:normal;vertical-align:sub;font-size:70%}
+.ceq_list i{Font-style:normal;color:#f00}
+
+.ceq_show{width:100%;font-family:'Times New Roman','宋体';padding:5px}
+.ceq_show td{white-space:normal;word-break:break-all;line-height:24px;vertical-align:top}
+.ceq_show td span{font-size:85%}
+.ceq_show tr{border-bottom:1px solid #ccc}
+.ceq_show b{font-weight:normal;vertical-align:sub;font-size:70%}
+.ceq_show i{Font-style:normal;color:#f00}
+
+/*小舞Added*/
+
+/*头部*/
+.top{width:100%;height:40px;background: url(../img/title_bg.png) no-repeat center #64a41a; text-align:center; line-height:40px;text-align:center; color:#FFFFFF;}
+.top button{background:url(../img/index_bntsubjectn.png) no-repeat; width:60px; border:none;line-height:25px;color:#FFFFFF;}
+.top a{text-decoration:none}
+
+/*个人中心*/
+.personal{ padding:10px; background:#ebebeb;  }
+.personal .per_center{ border-radius:5px;  background:#FFFFFF; padding:2px; border:1px solid #dadada; margin-bottom:20px;}
+
+.personal .per_center table td{ height:75px; padding-left:10px; font-size:1.1em; color:#040404; font-weight:bold; border-bottom:1px solid #dadada; }
+.personal .per_lt{ float:left; width:90%; vertical-align:middle;}
+.personal .per_rt{ float:right;  width:10%; vertical-align:middle;}
+.personal .per_btn1{background:#64bb30; height:60px; border-radius:10px; line-height:60px;  text-align:center;  color:#FFFFFF; font-size:1.1em; font-weight:bold; margin-bottom:10px; }
+
+
+/*登录*/
+.login{ width:100%;}
+.login .login_zh{ line-height:38px; color:#939393; font-size:1.1em; padding:0 8px;}
+.login .login_bd1{height:40px;color:#939393;padding:0 8px;margin-bottom:15px}
+
+.login .bd{ height:40px; border:1px solid #eeeeee; width:100%; text-align:left;color:#bfbebe;border-radius:5px;}
+.login .dlbtn{ background:#64bb30; height:60px; border-radius:10px; line-height:60px; border-radius:10px;  text-align:center;  color:#FFFFFF; font-size:1.1em; font-weight:bold; margin:20px 8px 10px 8px ; }
+
+/*搜索页面*/
+.search{ background:#ffffff; width:100%; border-bottom:1px solid #369b36; }
+.search_wz{ width:273px; margin:0 auto; padding-top:240px; padding-bottom:297px;  }
+.search_wz p{line-height:35px; font-size:1.1em; padding-left:90px; color:#030303; font-weight:bold; padding-top:10px; }
+.search_btn{width:100%;margin:10px 0; padding:0 5px}
+.search_text{width:100%;border-radius:5px; background:#f7f7f7; border:1px solid #e0e0e0; line-height:32px;vertical-align:middle;  }
+.search_btn2{background: url(../img/bntsearch.png) no-repeat; width:38px; height:38px; border:0; margin:0;}
+
+/*登录2*/
+.denglu2{ padding:0 8px;margin-top:10px;}
+.denglu2 td{ padding-right:5px;}
+
+/*化学方程式*/
+.hxfcs{ background:#ffffff; width:100%; border-bottom:1px solid #369b36; }
+.hxfcs ul li{ height:111px; line-height:24px;  padding-left:20px; border-bottom:1px solid #cccccc;}
+
+/*筛选试题*/
+.sxst{ width:100%; padding-top:10px; }
+.sxst td{ line-height:42px; height:42px; color:#979797; font-size:1.1em; }
+.sxst select{width:98%}
+.sxst input{width:98%}
+.sxst_bd{ width:90%; height:22px; border-radius:3px; border:1px solid #eeeeee; color:#c7c7c7; }
+/*主页*/
+.zy{ width:100%; background:#f0f0f0; margin-top:18px; height:auto; overflow:hidden; }
+.zy ul{ margin:0 auto;}
+.zy ul li{ width:50%; float:left; height:120px; text-align:center; color:#64b628;   background:#f0f0f0; font-weight:bold; }
+.zy a{text-decoration:none; text-align:center; color:#64b628;  font-weight:bold;}
+.clear{ height:0; line-height:0px; font-size:0; clear:both;}
+.zycz{ height:100px; padding-top:10px; line-height:30px;}
+.zybtn{ height:30px; text-align:center}
+.zybtn2{width:65px; height:30px; background:url(../img/index_bntsubjectn.png) no-repeat; color:#FFFFFF; font-weight:bold; margin-left:10px; display:block; border:none; float:left;}
+/*底部*/
+.foot{  height:48px; background:#5ab31b; color:#ffffff ; width:100%; padding-top:7px;}

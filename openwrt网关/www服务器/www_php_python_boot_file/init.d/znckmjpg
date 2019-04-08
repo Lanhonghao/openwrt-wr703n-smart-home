@@ -1,0 +1,10 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2013 OpenWrt.org
+
+START=99
+start() {
+ mjpg_streamer -i "input_uvc.so /dev/video0 -r 640x480 " -o "output_http.so -p 8080 -w /www/webcam" &
+}
+stop() {
+ killall -9 mjpg_streamer
+}

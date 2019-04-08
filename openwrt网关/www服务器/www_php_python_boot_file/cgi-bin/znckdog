@@ -1,0 +1,85 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import cgi, os
+import commands
+import time
+
+
+reboottime=60 #重启间隔时间，秒
+rebootpath='/mnt/sda1/www/cgi-bin/znckdogtime' #重启文件路径
+rebootcount=5 #时间差后多少次重启。
+mainrun='znckbgrun' #主线程名称，用于ps检测是否存在该线程
+mainserver='znckserver' #主服务名称，用于自动启动主线程
+
+
+#以下代码在后台一直运行
+
+dogcount=0 #记录错误次数
+runcount=0 #线程不存在次数
+while True:
+	try:
+		#######################################################
+		#读取重启时间文件，对比相差后超过次数则重启
+
+		cmdstring = "cat "+rebootpath #读取文件时间
+		(status, output) = commands.getstatusoutput(cmdstring)
+		if( status == 0 ):#0代表成功 大于0是各种错误
+			print "output="+str(output)
+			dogtime=time.mktime(time.strptime(output,'%Y-%m-%d %H:%M:%S')) #文件时间
+			print "dog time="+str(dogtime)
+			print "thistime="+str(time.time())
+			
+			if( time.time()-dogtime>reboottime): #如果当前时间和dog文件时间相差reboottime则
+				dogcount=dogcount+1 #dog计数器加1
+			else:
+				dogcount=0
+			
+			print "dogcount="+str(dogcount)
+
+		else:
+			print "output="+str(output)
+
+		if(  dogcount>=rebootcount ): #看门狗值大于重启值则重启（看门狗作用）
+			print "reboot..."
+			cmdstring = "reboot" #重启系统
+			(status, output) = commands.getstatusoutput(cmdstring)	
+
+		#######################################################
+
+
+
+
+		#######################################################
+		#检测主线程是否存在，不存在超过次数则启动
+
+		cmdstring = "ps" #读取文件时间
+		(status, output) = commands.getstatusoutput(cmdstring)
+		if( status == 0 ):#0代表成功 大于0是各种错误
+			#print "output="+str(output)
+			if( output.find(mainrun)>=0 ): #如果包含主线程
+				runcount=0
+			else:
+				runcount=runcount+1 #线程计数器加1
+
+			print "runcount="+str(runcount)
+		else:
+			print "output="+str(output)
+
+		if(  runcount>=rebootcount ): #线程值大于重启值则重启（启动主线程功能）
+			print "/etc/init.d/"+mainserver+" start"
+			cmdstring = "/etc/init.d/"+mainserver+" start" #重启系统
+			(status, output) = commands.getstatusoutput(cmdstring)
+			runcount=0
+
+		#######################################################
+
+
+		time.sleep(1)
+		
+		continue				
+
+	except Exception,e:
+		#print "except Error %s" % (e)
+		time.sleep(1)
+		
